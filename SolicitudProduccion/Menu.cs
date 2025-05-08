@@ -71,6 +71,5 @@ namespace SolicitudProduccion
                 Application.SBO_Application.MessageBox(ex.ToString(), 1, "Ok", "", "");
             }
         }
-
     }
 }
