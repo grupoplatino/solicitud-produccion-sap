@@ -92,7 +92,7 @@ namespace SolicitudProduccion
         private void OnCustomInitialize()  // Custom initialization when the form is loaded
         {
             this.btnCancel.PressedAfter += btnCancel_PressedAfter;
-            this.cbCopyTo.ValidValues.Add("1", "Production Order");
+            this.cbCopyTo.ValidValues.Add("1", "Orden de fabricación");
 
             InitializeGrid();
         }
@@ -122,19 +122,19 @@ namespace SolicitudProduccion
                 this.grdDet.DataTable = dataTable;
 
                 // Configure column headers
-                this.grdDet.Columns.Item("U_ItemType").TitleObject.Caption = "Type";
-                this.grdDet.Columns.Item("U_ItemCode").TitleObject.Caption = "Item Number";
-                this.grdDet.Columns.Item("U_ItemName").TitleObject.Caption = "Description";
-                this.grdDet.Columns.Item("U_BaseQty").TitleObject.Caption = "Base Quantity";
-                this.grdDet.Columns.Item("U_PlannedQty").TitleObject.Caption = "Required Quantity";
-                this.grdDet.Columns.Item("U_wareHouse").TitleObject.Caption = "Warehouse";
-                this.grdDet.Columns.Item("U_IssueType").TitleObject.Caption = "Issue Method";
-                this.grdDet.Columns.Item("U_Costo_Inicial").TitleObject.Caption = "Initial Cost";
-                this.grdDet.Columns.Item("U_Costo_Inicial2").TitleObject.Caption = "Initial Cost 2";
+                this.grdDet.Columns.Item("U_ItemType").TitleObject.Caption = "Tipo";
+                this.grdDet.Columns.Item("U_ItemCode").TitleObject.Caption = "Nº del artículo";
+                this.grdDet.Columns.Item("U_ItemName").TitleObject.Caption = "Descripción";
+                this.grdDet.Columns.Item("U_BaseQty").TitleObject.Caption = "Cantidad base";
+                this.grdDet.Columns.Item("U_PlannedQty").TitleObject.Caption = "Cantidad requerida";
+                this.grdDet.Columns.Item("U_wareHouse").TitleObject.Caption = "Almacén";
+                this.grdDet.Columns.Item("U_IssueType").TitleObject.Caption = "Método de emisión";
+                this.grdDet.Columns.Item("U_Costo_Inicial").TitleObject.Caption = "Costo inicial";
+                this.grdDet.Columns.Item("U_Costo_Inicial2").TitleObject.Caption = "Costo inicial 2";
             }
             catch (Exception ex)
             {
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error preparing the grid: {ex.Message}");
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al preparar el Grid: {ex.Message}");
             }
         }
 
@@ -165,7 +165,7 @@ namespace SolicitudProduccion
             }
             catch (Exception ex)
             {
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error opening the form: {ex.Message}");
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al abrir el formulario: {ex.Message}");
             }
         }
 
@@ -177,7 +177,7 @@ namespace SolicitudProduccion
             }
             catch (Exception ex)
             {
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error closing the form: {ex.Message}");
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al cerrar el formulario: {ex.Message}");
             }
         }
     }
