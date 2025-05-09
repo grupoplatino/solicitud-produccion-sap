@@ -64,7 +64,6 @@ Para que el formulario **Solicitud de Producción** funcione correctamente, es n
 | `Warehouse`         | `nvarchar`             | `8`          | Almacén.                                    |
 | `Priority`          | `int`                  | `6`          | Prioridad.                                  |
 | `PostDate`          | `date`                 | `N/A`        | Fecha de solicitud.                         |
-| `UserSign`          | `int`                  | `6`          | Usuario.                                    |
 | `LinkToObj`         | `int`                  | `4`          | Vinculados a.                               |
 | `OriginNum`         | `int`                  | `11`         | Pedido vinculado.                           |
 
