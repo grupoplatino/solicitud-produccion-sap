@@ -66,6 +66,7 @@ Para que el formulario **Solicitud de Producción** funcione correctamente, es n
 | `PostDate`          | `date`                 | `N/A`        | Fecha de solicitud                          |
 | `LinkToObj`         | `int`                  | `4`          | Vinculados a                                |
 | `OriginNum`         | `int`                  | `11`         | Pedido vinculado                            |
+| `CardCode`          | `nvarchar`             | `15`         | Cliente                                     |
 | `Comments`          | `nvarchar`             | `254`        | Comentarios                                 |
 
 #### Tabla: `@SOLI_PROD_DET`
