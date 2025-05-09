@@ -79,5 +79,5 @@ Para que el formulario **Solicitud de Producción** funcione correctamente, es n
 | `PlannedQty`        | `decimal`              | `21,6`       | Cantidad requerida                          |
 | `wareHouse`         | `nvarchar`             | `8`          | Almacén                                     |
 | `IssueType`         | `nvarchar`             | `1`          | Método de emisión:<br> - `M`: Manual<br> - `B`: Notificación |
-| `U_Costo_Inicial`   | `decimal`              | `21,6`       | Costo inicial                               |
-| `U_Costo_Inicial2`  | `decimal`              | `21,6`       | Costo inicial 2  
+| `Costo_Inicial`     | `decimal`              | `21,6`       | Costo inicial                               |
+| `Costo_Inicial2`    | `decimal`              | `21,6`       | Costo inicial 2  
