@@ -13,79 +13,73 @@ namespace SolicitudProduccion
         }
 
         /// <summary>
-        /// Initialize components. Called by framework after form created.
+        /// Initialize components. Called by framework after form creation.
         /// </summary>
         public override void OnInitializeComponent()
         {
-            this.Button0 = ((SAPbouiCOM.Button)(this.GetItem("btnCrear").Specific));
-            this.cbCopiarA = ((SAPbouiCOM.ButtonCombo)(this.GetItem("cbCopiarA").Specific));
+            // Assigning controls from the form to variables for manipulation
+            this.btnCreate = ((SAPbouiCOM.Button)(this.GetItem("btnCreate").Specific));
+            this.cbCopyTo = ((SAPbouiCOM.ButtonCombo)(this.GetItem("cbCopyTo").Specific));
             this.btnCancel = ((SAPbouiCOM.Button)(this.GetItem("btnCancel").Specific));
-            this.StaticText0 = ((SAPbouiCOM.StaticText)(this.GetItem("lblNoPro").Specific));
-            this.StaticText1 = ((SAPbouiCOM.StaticText)(this.GetItem("lblDesc").Specific));
-            this.StaticText2 = ((SAPbouiCOM.StaticText)(this.GetItem("lblCant").Specific));
-            this.StaticText3 = ((SAPbouiCOM.StaticText)(this.GetItem("lblAlm").Specific));
-            this.StaticText4 = ((SAPbouiCOM.StaticText)(this.GetItem("lblPrior").Specific));
-            this.EditText0 = ((SAPbouiCOM.EditText)(this.GetItem("txtNoPro").Specific));
-            this.EditText1 = ((SAPbouiCOM.EditText)(this.GetItem("txtDesc").Specific));
-            this.EditText2 = ((SAPbouiCOM.EditText)(this.GetItem("txtCant").Specific));
-            this.EditText3 = ((SAPbouiCOM.EditText)(this.GetItem("txtAlm").Specific));
-            this.EditText4 = ((SAPbouiCOM.EditText)(this.GetItem("txtPrior").Specific));
-            this.Grid0 = ((SAPbouiCOM.Grid)(this.GetItem("Item_17").Specific));
-            this.StaticText5 = ((SAPbouiCOM.StaticText)(this.GetItem("lblNoSol").Specific));
-            this.StaticText6 = ((SAPbouiCOM.StaticText)(this.GetItem("lblFecha").Specific));
-            this.StaticText7 = ((SAPbouiCOM.StaticText)(this.GetItem("lblUsua").Specific));
-            this.StaticText8 = ((SAPbouiCOM.StaticText)(this.GetItem("lblVin").Specific));
-            this.StaticText9 = ((SAPbouiCOM.StaticText)(this.GetItem("lblPeVin").Specific));
-            this.StaticText10 = ((SAPbouiCOM.StaticText)(this.GetItem("lblClient").Specific));
-            this.EditText5 = ((SAPbouiCOM.EditText)(this.GetItem("txtNoSol").Specific));
-            this.EditText6 = ((SAPbouiCOM.EditText)(this.GetItem("txtFecha").Specific));
-            this.EditText7 = ((SAPbouiCOM.EditText)(this.GetItem("txtUsua").Specific));
-            this.EditText8 = ((SAPbouiCOM.EditText)(this.GetItem("txtNorma").Specific));
-            this.EditText9 = ((SAPbouiCOM.EditText)(this.GetItem("txtPeVin").Specific));
-            this.EditText10 = ((SAPbouiCOM.EditText)(this.GetItem("txtClient").Specific));
-            this.StaticText11 = ((SAPbouiCOM.StaticText)(this.GetItem("lblNorma").Specific));
-            this.StaticText12 = ((SAPbouiCOM.StaticText)(this.GetItem("lblProy").Specific));
-            this.EditText11 = ((SAPbouiCOM.EditText)(this.GetItem("txtProy").Specific));
-            this.ComboBox0 = ((SAPbouiCOM.ComboBox)(this.GetItem("cbxVin").Specific));
-            this.StaticText13 = ((SAPbouiCOM.StaticText)(this.GetItem("lblComm").Specific));
-            this.EditText12 = ((SAPbouiCOM.EditText)(this.GetItem("txtComm").Specific));
-            this.cbCopiarA.ComboSelectAfter += this.cbCopiarA_ComboSelectAfter;
+            this.lblNoIte = ((SAPbouiCOM.StaticText)(this.GetItem("lblNoIte").Specific));
+            this.lblDesc = ((SAPbouiCOM.StaticText)(this.GetItem("lblDesc").Specific));
+            this.lblQty = ((SAPbouiCOM.StaticText)(this.GetItem("lblQty").Specific));
+            this.lblWareH = ((SAPbouiCOM.StaticText)(this.GetItem("lblWareH").Specific));
+            this.lblPrior = ((SAPbouiCOM.StaticText)(this.GetItem("lblPrior").Specific));
+            this.txtNoIte = ((SAPbouiCOM.EditText)(this.GetItem("txtNoIte").Specific));
+            this.txtDesc = ((SAPbouiCOM.EditText)(this.GetItem("txtDesc").Specific));
+            this.txtQty = ((SAPbouiCOM.EditText)(this.GetItem("txtQty").Specific));
+            this.txtWareH = ((SAPbouiCOM.EditText)(this.GetItem("txtWareH").Specific));
+            this.txtPrior = ((SAPbouiCOM.EditText)(this.GetItem("txtPrior").Specific));
+            this.grdDet = ((SAPbouiCOM.Grid)(this.GetItem("grdDet").Specific));
+            this.lblNoReq = ((SAPbouiCOM.StaticText)(this.GetItem("lblNoReq").Specific));
+            this.lblFecha = ((SAPbouiCOM.StaticText)(this.GetItem("lblDate").Specific));
+            this.lblUser = ((SAPbouiCOM.StaticText)(this.GetItem("lblUser").Specific));
+            this.lblLink = ((SAPbouiCOM.StaticText)(this.GetItem("lblLink").Specific));
+            this.lblLinkOr = ((SAPbouiCOM.StaticText)(this.GetItem("lblLinkOr").Specific));
+            this.lblClient = ((SAPbouiCOM.StaticText)(this.GetItem("lblClient").Specific));
+            this.txtNoReq = ((SAPbouiCOM.EditText)(this.GetItem("txtNoReq").Specific));
+            this.txtDate = ((SAPbouiCOM.EditText)(this.GetItem("txtDate").Specific));
+            this.txtUser = ((SAPbouiCOM.EditText)(this.GetItem("txtUser").Specific));
+            this.txtLinkOr = ((SAPbouiCOM.EditText)(this.GetItem("txtLinkOr").Specific));
+            this.txtClient = ((SAPbouiCOM.EditText)(this.GetItem("txtClient").Specific));
+            this.cbxLink = ((SAPbouiCOM.ComboBox)(this.GetItem("cbxLink").Specific));
+            this.lblComm = ((SAPbouiCOM.StaticText)(this.GetItem("lblComm").Specific));
+            this.txtComm = ((SAPbouiCOM.EditText)(this.GetItem("txtComm").Specific));
+            this.cbCopyTo.ComboSelectAfter += this.cbCopyTo_ComboSelectAfter;
             this.OnCustomInitialize();
 
         }
 
-        private SAPbouiCOM.Button Button0;
-        private SAPbouiCOM.ButtonCombo cbCopiarA;
+        // Variable declarations for controls
+        private SAPbouiCOM.Button btnCreate;
+        private SAPbouiCOM.ButtonCombo cbCopyTo;
         private SAPbouiCOM.Button btnCancel;
-        private SAPbouiCOM.StaticText StaticText0;
-        private SAPbouiCOM.StaticText StaticText1;
-        private SAPbouiCOM.StaticText StaticText2;
-        private SAPbouiCOM.StaticText StaticText3;
-        private SAPbouiCOM.StaticText StaticText4;
-        private SAPbouiCOM.EditText EditText0;
-        private SAPbouiCOM.EditText EditText1;
-        private SAPbouiCOM.EditText EditText2;
-        private SAPbouiCOM.EditText EditText3;
-        private SAPbouiCOM.EditText EditText4;
-        private SAPbouiCOM.Grid Grid0;
-        private SAPbouiCOM.StaticText StaticText5;
-        private SAPbouiCOM.StaticText StaticText6;
-        private SAPbouiCOM.StaticText StaticText7;
-        private SAPbouiCOM.StaticText StaticText8;
-        private SAPbouiCOM.StaticText StaticText9;
-        private SAPbouiCOM.StaticText StaticText10;
-        private SAPbouiCOM.EditText EditText5;
-        private SAPbouiCOM.EditText EditText6;
-        private SAPbouiCOM.EditText EditText7;
-        private SAPbouiCOM.EditText EditText8;
-        private SAPbouiCOM.EditText EditText9;
-        private SAPbouiCOM.EditText EditText10;
-        private SAPbouiCOM.StaticText StaticText11;
-        private SAPbouiCOM.StaticText StaticText12;
-        private SAPbouiCOM.EditText EditText11;
-        private SAPbouiCOM.ComboBox ComboBox0;
-        private SAPbouiCOM.StaticText StaticText13;
-        private SAPbouiCOM.EditText EditText12;
+        private SAPbouiCOM.StaticText lblNoIte;
+        private SAPbouiCOM.StaticText lblDesc;
+        private SAPbouiCOM.StaticText lblQty;
+        private SAPbouiCOM.StaticText lblWareH;
+        private SAPbouiCOM.StaticText lblPrior;
+        private SAPbouiCOM.EditText txtNoIte;
+        private SAPbouiCOM.EditText txtDesc;
+        private SAPbouiCOM.EditText txtQty;
+        private SAPbouiCOM.EditText txtWareH;
+        private SAPbouiCOM.EditText txtPrior;
+        private SAPbouiCOM.Grid grdDet;
+        private SAPbouiCOM.StaticText lblNoReq;
+        private SAPbouiCOM.StaticText lblFecha;
+        private SAPbouiCOM.StaticText lblUser;
+        private SAPbouiCOM.StaticText lblLink;
+        private SAPbouiCOM.StaticText lblLinkOr;
+        private SAPbouiCOM.StaticText lblClient;
+        private SAPbouiCOM.EditText txtNoReq;
+        private SAPbouiCOM.EditText txtDate;
+        private SAPbouiCOM.EditText txtUser;
+        private SAPbouiCOM.EditText txtLinkOr;
+        private SAPbouiCOM.EditText txtClient;
+        private SAPbouiCOM.ComboBox cbxLink;
+        private SAPbouiCOM.StaticText lblComm;
+        private SAPbouiCOM.EditText txtComm;
 
         /// <summary>
         /// Initialize form event. Called by framework before form creation.
@@ -95,17 +89,60 @@ namespace SolicitudProduccion
 
         }
 
-        private void OnCustomInitialize()
+        private void OnCustomInitialize()  // Custom initialization when the form is loaded
         {
             this.btnCancel.PressedAfter += btnCancel_PressedAfter;
-            this.cbCopiarA.ValidValues.Add("1", "Orden de fabricación");
+            this.cbCopyTo.ValidValues.Add("1", "Production Order");
+
+            InitializeGrid();
         }
 
-        private void cbCopiarA_ComboSelectAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal)
+        private void InitializeGrid() // Method to configure the initial structure of the grid
         {
             try
             {
-                if (this.cbCopiarA.Selected.Value == "1")
+                // Create an empty DataTable associated with the grid
+                SAPbouiCOM.DataTable dataTable = this.UIAPIRawForm.DataSources.DataTables.Add("ProdRequestTable");
+
+                // Define the columns of the DataTable (match the grid)
+                dataTable.Columns.Add("U_ItemType", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric, 50); // Type
+                dataTable.Columns.Add("U_ItemCode", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric, 100); // Item Number
+                dataTable.Columns.Add("U_ItemName", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric, 100); // Description
+                dataTable.Columns.Add("U_BaseQty", SAPbouiCOM.BoFieldsType.ft_Quantity, 0); // Base Quantity
+                dataTable.Columns.Add("U_PlannedQty", SAPbouiCOM.BoFieldsType.ft_Quantity, 0); // Required Quantity
+                dataTable.Columns.Add("U_wareHouse", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric, 50); // Warehouse
+                dataTable.Columns.Add("U_IssueType", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric, 20); // Issue Method
+                dataTable.Columns.Add("U_Costo_Inicial", SAPbouiCOM.BoFieldsType.ft_Price, 0); // Initial Cost
+                dataTable.Columns.Add("U_Costo_Inicial2", SAPbouiCOM.BoFieldsType.ft_Price, 0); // Initial Cost 2
+
+                // Add an initial empty row
+                dataTable.Rows.Add(1);
+
+                // Assign the DataTable to the grid
+                this.grdDet.DataTable = dataTable;
+
+                // Configure column headers
+                this.grdDet.Columns.Item("U_ItemType").TitleObject.Caption = "Type";
+                this.grdDet.Columns.Item("U_ItemCode").TitleObject.Caption = "Item Number";
+                this.grdDet.Columns.Item("U_ItemName").TitleObject.Caption = "Description";
+                this.grdDet.Columns.Item("U_BaseQty").TitleObject.Caption = "Base Quantity";
+                this.grdDet.Columns.Item("U_PlannedQty").TitleObject.Caption = "Required Quantity";
+                this.grdDet.Columns.Item("U_wareHouse").TitleObject.Caption = "Warehouse";
+                this.grdDet.Columns.Item("U_IssueType").TitleObject.Caption = "Issue Method";
+                this.grdDet.Columns.Item("U_Costo_Inicial").TitleObject.Caption = "Initial Cost";
+                this.grdDet.Columns.Item("U_Costo_Inicial2").TitleObject.Caption = "Initial Cost 2";
+            }
+            catch (Exception ex)
+            {
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error preparing the grid: {ex.Message}");
+            }
+        }
+
+        private void cbCopyTo_ComboSelectAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal) // Event when an option is selected in the "Copy To" ComboBox
+        {
+            try
+            {
+                if (this.cbCopyTo.Selected.Value == "1")
                 {
                     OpenProductionOrderForm();
                 }
@@ -116,7 +153,7 @@ namespace SolicitudProduccion
             }
         }
 
-        private void OpenProductionOrderForm()
+        private void OpenProductionOrderForm() // Method to open the Production Order form
         {
             try
             {
@@ -128,11 +165,11 @@ namespace SolicitudProduccion
             }
             catch (Exception ex)
             {
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al abrir el formulario: {ex.Message}");
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error opening the form: {ex.Message}");
             }
         }
 
-        private void btnCancel_PressedAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal)
+        private void btnCancel_PressedAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal) // Event when the "Cancel" button is pressed
         {
             try
             {
@@ -140,7 +177,7 @@ namespace SolicitudProduccion
             }
             catch (Exception ex)
             {
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al cerrar el formulario: {ex.Message}");
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error closing the form: {ex.Message}");
             }
         }
     }
