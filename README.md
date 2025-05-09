@@ -58,25 +58,25 @@ Para que el formulario **Solicitud de Producción** funcione correctamente, es n
 
 | **Campo**           | **Tipo de Datos**       | **Longitud** | **Descripción**                             |
 |----------------------|-------------------------|--------------|---------------------------------------------|
-| `ItemCode`          | `nvarchar`             | `50`         | Número de producto.                         |
-| `ProdName`          | `nvarchar`             | `100`        | Descripción del producto.                   |
-| `PlannedQty`        | `decimal`              | `21,6`       | Cantidad planificada.                       |
-| `Warehouse`         | `nvarchar`             | `8`          | Almacén.                                    |
-| `Priority`          | `int`                  | `6`          | Prioridad.                                  |
-| `PostDate`          | `date`                 | `N/A`        | Fecha de solicitud.                         |
-| `LinkToObj`         | `int`                  | `4`          | Vinculados a.                               |
-| `OriginNum`         | `int`                  | `11`         | Pedido vinculado.                           |
+| `ItemCode`          | `nvarchar`             | `50`         | Número de producto                          |
+| `ProdName`          | `nvarchar`             | `100`        | Descripción del producto                    |
+| `PlannedQty`        | `decimal`              | `21,6`       | Cantidad planificada                        |
+| `Warehouse`         | `nvarchar`             | `8`          | Almacén                                     |
+| `Priority`          | `int`                  | `6`          | Prioridad                                   |
+| `PostDate`          | `date`                 | `N/A`        | Fecha de solicitud                          |
+| `LinkToObj`         | `int`                  | `4`          | Vinculados a                                |
+| `OriginNum`         | `int`                  | `11`         | Pedido vinculado                            |
 
 #### Tabla: `@SOLI_PROD_DET`
 
 | **Campo**           | **Tipo de Datos**       | **Longitud** | **Descripción**                             |
 |----------------------|-------------------------|--------------|---------------------------------------------|
-| `ItemType`          | `int`                  | `N/A`        | Tipo de ítem:<br> - `290`: Recurso<br> - `4`: Artículo |
-| `ItemCode`          | `nvarchar`             | `50`         | Número del artículo.                        |
-| `ItemName`          | `nvarchar`             | `100`        | Descripción del artículo.                   |
-| `BaseQty`           | `decimal`              | `21,6`       | Cantidad base.                              |
-| `PlannedQty`        | `decimal`              | `21,6`       | Cantidad requerida.                         |
-| `wareHouse`         | `nvarchar`             | `8`          | Almacén.                                    |
+| `ItemType`          | `int`                  | `4`          | Tipo:<br> - `290`: Recurso<br> - `4`: Artículo |
+| `ItemCode`          | `nvarchar`             | `50`         | Número del artículo                         |
+| `ItemName`          | `nvarchar`             | `100`        | Descripción del artículo                    |
+| `BaseQty`           | `decimal`              | `21,6`       | Cantidad base                               |
+| `PlannedQty`        | `decimal`              | `21,6`       | Cantidad requerida                          |
+| `wareHouse`         | `nvarchar`             | `8`          | Almacén                                     |
 | `IssueType`         | `nvarchar`             | `1`          | Método de emisión:<br> - `M`: Manual<br> - `B`: Notificación |
-| `U_Costo_Inicial`   | `decimal`              | `21,6`       | Costo inicial.                              |
-| `U_Costo_Inicial2`  | `decimal`              | `21,6`       | Costo inicial 2. 
+| `U_Costo_Inicial`   | `decimal`              | `21,6`       | Costo inicial                               |
+| `U_Costo_Inicial2`  | `decimal`              | `21,6`       | Costo inicial 2  
