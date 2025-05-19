@@ -8,50 +8,7 @@ namespace SolicitudProduccion
     [FormAttribute("SolicitudProduccion.Form1", "Form1.b1f")]
     class Form1 : UserFormBase
     {
-        public Form1()
-        {
-        }
-
-        /// <summary>
-        /// Initialize components. Called by framework after form creation.
-        /// </summary>
-        public override void OnInitializeComponent()
-        {
-            // Assigning controls from the form to variables for manipulation
-            this.btnCreate = ((SAPbouiCOM.Button)(this.GetItem("btnCreate").Specific));
-            this.cbCopyTo = ((SAPbouiCOM.ButtonCombo)(this.GetItem("cbCopyTo").Specific));
-            this.btnCancel = ((SAPbouiCOM.Button)(this.GetItem("btnCancel").Specific));
-            this.lblNoIte = ((SAPbouiCOM.StaticText)(this.GetItem("lblNoIte").Specific));
-            this.lblDesc = ((SAPbouiCOM.StaticText)(this.GetItem("lblDesc").Specific));
-            this.lblQty = ((SAPbouiCOM.StaticText)(this.GetItem("lblQty").Specific));
-            this.lblWareH = ((SAPbouiCOM.StaticText)(this.GetItem("lblWareH").Specific));
-            this.lblPrior = ((SAPbouiCOM.StaticText)(this.GetItem("lblPrior").Specific));
-            this.txtNoIte = ((SAPbouiCOM.EditText)(this.GetItem("txtNoIte").Specific));
-            this.txtDesc = ((SAPbouiCOM.EditText)(this.GetItem("txtDesc").Specific));
-            this.txtQty = ((SAPbouiCOM.EditText)(this.GetItem("txtQty").Specific));
-            this.txtWareH = ((SAPbouiCOM.EditText)(this.GetItem("txtWareH").Specific));
-            this.txtPrior = ((SAPbouiCOM.EditText)(this.GetItem("txtPrior").Specific));
-            this.grdDet = ((SAPbouiCOM.Grid)(this.GetItem("grdDet").Specific));
-            this.lblNoReq = ((SAPbouiCOM.StaticText)(this.GetItem("lblNoReq").Specific));
-            this.lblFecha = ((SAPbouiCOM.StaticText)(this.GetItem("lblDate").Specific));
-            this.lblUser = ((SAPbouiCOM.StaticText)(this.GetItem("lblUser").Specific));
-            this.lblLink = ((SAPbouiCOM.StaticText)(this.GetItem("lblLink").Specific));
-            this.lblLinkOr = ((SAPbouiCOM.StaticText)(this.GetItem("lblLinkOr").Specific));
-            this.lblClient = ((SAPbouiCOM.StaticText)(this.GetItem("lblClient").Specific));
-            this.txtNoReq = ((SAPbouiCOM.EditText)(this.GetItem("txtNoReq").Specific));
-            this.txtDate = ((SAPbouiCOM.EditText)(this.GetItem("txtDate").Specific));
-            this.txtUser = ((SAPbouiCOM.EditText)(this.GetItem("txtUser").Specific));
-            this.txtLinkOr = ((SAPbouiCOM.EditText)(this.GetItem("txtLinkOr").Specific));
-            this.txtClient = ((SAPbouiCOM.EditText)(this.GetItem("txtClient").Specific));
-            this.cbxLink = ((SAPbouiCOM.ComboBox)(this.GetItem("cbxLink").Specific));
-            this.lblComm = ((SAPbouiCOM.StaticText)(this.GetItem("lblComm").Specific));
-            this.txtComm = ((SAPbouiCOM.EditText)(this.GetItem("txtComm").Specific));
-            this.cbCopyTo.ComboSelectAfter += this.cbCopyTo_ComboSelectAfter;
-            this.OnCustomInitialize();
-
-        }
-
-        // Variable declarations for controls
+        // Form Control Declarations
         private SAPbouiCOM.Button btnCreate;
         private SAPbouiCOM.ButtonCombo cbCopyTo;
         private SAPbouiCOM.Button btnCancel;
@@ -74,12 +31,55 @@ namespace SolicitudProduccion
         private SAPbouiCOM.StaticText lblClient;
         private SAPbouiCOM.EditText txtNoReq;
         private SAPbouiCOM.EditText txtDate;
-        private SAPbouiCOM.EditText txtUser;
         private SAPbouiCOM.EditText txtLinkOr;
         private SAPbouiCOM.EditText txtClient;
         private SAPbouiCOM.ComboBox cbxLink;
         private SAPbouiCOM.StaticText lblComm;
         private SAPbouiCOM.EditText txtComm;
+        private SAPbouiCOM.ComboBox cbxUser;
+
+        // Form Initialization Methods
+        public Form1()
+        {
+        }
+
+        /// <summary>
+        /// Initialize components. Called by framework after form creation.
+        /// </summary>
+        public override void OnInitializeComponent()
+        {
+            //    Assigning controls from the form to variables for manipulation
+            this.btnCreate = ((SAPbouiCOM.Button)(this.GetItem("btnCreate").Specific));
+            this.cbCopyTo = ((SAPbouiCOM.ButtonCombo)(this.GetItem("cbCopyTo").Specific));
+            this.btnCancel = ((SAPbouiCOM.Button)(this.GetItem("btnCancel").Specific));
+            this.lblNoIte = ((SAPbouiCOM.StaticText)(this.GetItem("lblNoIte").Specific));
+            this.lblDesc = ((SAPbouiCOM.StaticText)(this.GetItem("lblDesc").Specific));
+            this.lblQty = ((SAPbouiCOM.StaticText)(this.GetItem("lblQty").Specific));
+            this.lblWareH = ((SAPbouiCOM.StaticText)(this.GetItem("lblWareH").Specific));
+            this.lblPrior = ((SAPbouiCOM.StaticText)(this.GetItem("lblPrior").Specific));
+            this.txtNoIte = ((SAPbouiCOM.EditText)(this.GetItem("txtNoIte").Specific));
+            this.txtDesc = ((SAPbouiCOM.EditText)(this.GetItem("txtDesc").Specific));
+            this.txtQty = ((SAPbouiCOM.EditText)(this.GetItem("txtQty").Specific));
+            this.txtWareH = ((SAPbouiCOM.EditText)(this.GetItem("txtWareH").Specific));
+            this.txtPrior = ((SAPbouiCOM.EditText)(this.GetItem("txtPrior").Specific));
+            this.grdDet = ((SAPbouiCOM.Grid)(this.GetItem("grdDet").Specific));
+            this.lblNoReq = ((SAPbouiCOM.StaticText)(this.GetItem("lblNoReq").Specific));
+            this.lblFecha = ((SAPbouiCOM.StaticText)(this.GetItem("lblDate").Specific));
+            this.lblUser = ((SAPbouiCOM.StaticText)(this.GetItem("lblUser").Specific));
+            this.lblLink = ((SAPbouiCOM.StaticText)(this.GetItem("lblLink").Specific));
+            this.lblLinkOr = ((SAPbouiCOM.StaticText)(this.GetItem("lblLinkOr").Specific));
+            this.lblClient = ((SAPbouiCOM.StaticText)(this.GetItem("lblClient").Specific));
+            this.txtNoReq = ((SAPbouiCOM.EditText)(this.GetItem("txtNoReq").Specific));
+            this.txtDate = ((SAPbouiCOM.EditText)(this.GetItem("txtDate").Specific));
+            this.txtLinkOr = ((SAPbouiCOM.EditText)(this.GetItem("txtLinkOr").Specific));
+            this.txtClient = ((SAPbouiCOM.EditText)(this.GetItem("txtClient").Specific));
+            this.cbxLink = ((SAPbouiCOM.ComboBox)(this.GetItem("cbxLink").Specific));
+            this.lblComm = ((SAPbouiCOM.StaticText)(this.GetItem("lblComm").Specific));
+            this.txtComm = ((SAPbouiCOM.EditText)(this.GetItem("txtComm").Specific));
+            this.cbCopyTo.ComboSelectAfter += this.cbCopyTo_ComboSelectAfter;
+            this.cbxUser = ((SAPbouiCOM.ComboBox)(this.GetItem("cbxUser").Specific));
+            this.OnCustomInitialize();
+        }
 
         /// <summary>
         /// Initialize form event. Called by framework before form creation.
@@ -87,14 +87,18 @@ namespace SolicitudProduccion
         public override void OnInitializeFormEvents()
         {
 
-        }
+        } 
 
         private void OnCustomInitialize()  // Custom initialization when the form is loaded
         {
             this.btnCancel.PressedAfter += btnCancel_PressedAfter;
+            this.btnCreate.PressedAfter += btnCreate_PressedAfter;
+            
             this.cbCopyTo.ValidValues.Add("1", "Orden de fabricación");
 
             InitializeGrid();
+
+            LoadUsersToComboBox(); // Fill user ComboBox
         }
 
         private void InitializeGrid() // Method to configure the initial structure of the grid
@@ -138,6 +142,42 @@ namespace SolicitudProduccion
             }
         }
 
+        // Data Loading Methods
+        private void LoadUsersToComboBox() // Method to fill cbxUser with SAP users
+        {
+            try
+            {
+                // Get DI API company object
+                SAPbobsCOM.Company company = (SAPbobsCOM.Company)SAPbouiCOM.Framework.Application.SBO_Application.Company.GetDICompany();
+
+                // Get recordset object
+                SAPbobsCOM.Recordset oRS = (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+
+                // Query to get active users (not locked)
+                oRS.DoQuery(@"SELECT ""USERID"", ""U_NAME"" FROM OUSR WHERE ""Locked"" = 'N'");
+
+                // Clear previous values
+                for (int i = this.cbxUser.ValidValues.Count - 1; i >= 0; i--)
+                {
+                    this.cbxUser.ValidValues.Remove(i, SAPbouiCOM.BoSearchKey.psk_Index);
+                }
+
+                // Fill ComboBox with USERID as value, U_NAME as display text
+                while (!oRS.EoF)
+                {
+                    string userId = oRS.Fields.Item("USERID").Value.ToString();
+                    string userName = oRS.Fields.Item("U_NAME").Value.ToString();
+                    this.cbxUser.ValidValues.Add(userId, userName);
+                    oRS.MoveNext();
+                }
+            }
+            catch (Exception ex)
+            {
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al cargar los usuarios: {ex.Message}");
+            }
+        }
+
+        // UI Event Handlers
         private void cbCopyTo_ComboSelectAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal) // Event when an option is selected in the "Copy To" ComboBox
         {
             try
@@ -150,6 +190,90 @@ namespace SolicitudProduccion
             catch (Exception ex)
             {
                 SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error: {ex.Message}");
+            }
+        }
+
+        private void btnCancel_PressedAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal) // Event when the "Cancel" button is pressed
+        {
+            try
+            {
+                this.UIAPIRawForm.Close();
+            }
+            catch (Exception ex)
+            {
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al cerrar el formulario: {ex.Message}");
+            }
+        }
+
+        private void btnCreate_PressedAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal) // Method executed when the Create button is pressed
+        {
+            try
+            {
+                CreateProductionRequest();
+            }
+            catch (Exception ex)
+            {
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al crear la solicitud de producción: {ex.Message}");
+            }
+        }
+
+        // Business Logic Methods
+        private void CreateProductionRequest()
+        {
+            try
+            {
+                // Get the SAP CompanyService object
+                SAPbobsCOM.CompanyService companyService = ((SAPbobsCOM.Company)SAPbouiCOM.Framework.Application.SBO_Application.Company.GetDICompany()).GetCompanyService();
+
+                // Get the GeneralService for the header table (@SOLI_PROD_ENC)
+                SAPbobsCOM.GeneralService generalService = companyService.GetGeneralService("\"SOLI_PROD_ENC\"");
+
+                // Create a GeneralData object for the header
+                SAPbobsCOM.GeneralData headerData = (SAPbobsCOM.GeneralData)generalService.GetDataInterface(SAPbobsCOM.GeneralServiceDataInterfaces.gsGeneralData);
+
+                // Fill header fields
+                headerData.SetProperty("U_ItemCode", txtNoIte);
+                headerData.SetProperty("U_ProdName", txtDesc);
+                headerData.SetProperty("U_PlannedQty", txtQty);
+                headerData.SetProperty("U_Warehouse", txtWareH);
+                headerData.SetProperty("U_Priority", txtPrior);
+                headerData.SetProperty("U_PostDate", txtDate.Value);
+                headerData.SetProperty("U_LinkToObj", cbxLink.Value);
+                headerData.SetProperty("U_OriginNum", txtLinkOr.Value);
+                headerData.SetProperty("U_Client", txtClient.Value);
+                headerData.SetProperty("U_Comments", txtComm.Value);
+
+                // Get the child collection for the detail table (@SOLI_PROD_DET)
+                SAPbobsCOM.GeneralDataCollection detailsCollection = headerData.Child("\"@SOLI_PROD_DET\"");
+
+                // Loop through the grid rows and add them to the details collection
+                for (int i = 0; i < grdDet.Rows.Count; i++)
+                {
+                    // Create a new record in the details collection
+                    SAPbobsCOM.GeneralData detailData = detailsCollection.Add();
+
+                    // Fill detail fields
+                    detailData.SetProperty("U_ItemType", grdDet.DataTable.GetValue("U_ItemType", i).ToString());
+                    detailData.SetProperty("U_ItemCode", grdDet.DataTable.GetValue("U_ItemCode", i).ToString());
+                    detailData.SetProperty("U_ItemName", grdDet.DataTable.GetValue("U_ItemName", i).ToString());
+                    detailData.SetProperty("U_BaseQty", Convert.ToDouble(grdDet.DataTable.GetValue("U_BaseQty", i)));
+                    detailData.SetProperty("U_PlannedQty", Convert.ToDouble(grdDet.DataTable.GetValue("U_PlannedQty", i)));
+                    detailData.SetProperty("U_wareHouse", grdDet.DataTable.GetValue("U_wareHouse", i).ToString());
+                    detailData.SetProperty("U_IssueType", grdDet.DataTable.GetValue("U_IssueType", i).ToString());
+                    detailData.SetProperty("U_Costo_Inicial", Convert.ToDouble(grdDet.DataTable.GetValue("U_Costo_Inicial", i)));
+                    detailData.SetProperty("U_Costo_Inicial2", Convert.ToDouble(grdDet.DataTable.GetValue("U_Costo_Inicial2", i)));
+                }
+
+                // Add the header and details to the database
+                generalService.Add(headerData);
+
+                // Notify the user of success
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox("Solicitud de producción creada con éxito.");
+            }
+            catch (Exception ex)
+            {
+                // Notify the user of any error
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Ocurrió un error: {ex.Message}");
             }
         }
 
@@ -166,18 +290,6 @@ namespace SolicitudProduccion
             catch (Exception ex)
             {
                 SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al abrir el formulario: {ex.Message}");
-            }
-        }
-
-        private void btnCancel_PressedAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal) // Event when the "Cancel" button is pressed
-        {
-            try
-            {
-                this.UIAPIRawForm.Close();
-            }
-            catch (Exception ex)
-            {
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al cerrar el formulario: {ex.Message}");
             }
         }
     }
