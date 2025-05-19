@@ -16,11 +16,11 @@ namespace SolicitudProduccion
 
             SAPbouiCOM.MenuCreationParams oCreationPackage = null;
             oCreationPackage = ((SAPbouiCOM.MenuCreationParams)(Application.SBO_Application.CreateObject(SAPbouiCOM.BoCreatableObjectType.cot_MenuCreationParams)));
-            oMenuItem = Application.SBO_Application.Menus.Item("43520"); // moudles'
+            oMenuItem = Application.SBO_Application.Menus.Item("43520"); // modules'
 
             oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_POPUP;
-            oCreationPackage.UniqueID = "SolicitudProduccion";
-            oCreationPackage.String = "SolicitudProduccion";
+            oCreationPackage.UniqueID = "ProductionRequestForm";
+            oCreationPackage.String = "Solicitud de Producción";
             oCreationPackage.Enabled = true;
             oCreationPackage.Position = -1;
 
@@ -39,18 +39,18 @@ namespace SolicitudProduccion
             try
             {
                 // Get the menu collection of the newly added pop-up item
-                oMenuItem = Application.SBO_Application.Menus.Item("SolicitudProduccion");
+                oMenuItem = Application.SBO_Application.Menus.Item("ProductionRequestForm");
                 oMenus = oMenuItem.SubMenus;
 
-                // Create s sub menu
+                // Create a sub menu
                 oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                oCreationPackage.UniqueID = "SolicitudProduccion.Form1";
-                oCreationPackage.String = "Form1";
+                oCreationPackage.UniqueID = "SolicitudProduccion.ProductionRequestForm";
+                oCreationPackage.String = "Crear solicitud de producción";
                 oMenus.AddEx(oCreationPackage);
             }
             catch (Exception er)
             { //  Menu already exists
-                Application.SBO_Application.SetStatusBarMessage("Menu Already Exists", SAPbouiCOM.BoMessageTime.bmt_Short, true);
+                Application.SBO_Application.SetStatusBarMessage("Menu already exists", SAPbouiCOM.BoMessageTime.bmt_Short, true);
             }
         }
 
@@ -60,9 +60,9 @@ namespace SolicitudProduccion
 
             try
             {
-                if (pVal.BeforeAction && pVal.MenuUID == "SolicitudProduccion.Form1")
+                if (pVal.BeforeAction && pVal.MenuUID == "SolicitudProduccion.ProductionRequestForm")
                 {
-                    Form1 activeForm = new Form1();
+                    ProductionRequestForm activeForm = new ProductionRequestForm();
                     activeForm.Show();
                 }
             }

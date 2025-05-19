@@ -5,8 +5,8 @@ using System.Xml;
 
 namespace SolicitudProduccion
 {
-    [FormAttribute("SolicitudProduccion.Form1", "Form1.b1f")]
-    class Form1 : UserFormBase
+    [FormAttribute("SolicitudProduccion.ProductionRequestForm ", "ProductionRequestForm.b1f")]
+    class ProductionRequestForm : UserFormBase
     {
         // Form Control Declarations
         private SAPbouiCOM.Button btnCreate;
@@ -39,7 +39,7 @@ namespace SolicitudProduccion
         private SAPbouiCOM.ComboBox cbxUser;
 
         // Form Initialization Methods
-        public Form1()
+        public ProductionRequestForm()
         {
         }
 
@@ -142,8 +142,9 @@ namespace SolicitudProduccion
             }
         }
 
+
         // Data Loading Methods
-        private void LoadUsersToComboBox() // Method to fill cbxUser with SAP users
+        private void LoadUsersToComboBox()
         {
             try
             {
@@ -170,12 +171,19 @@ namespace SolicitudProduccion
                     this.cbxUser.ValidValues.Add(userId, userName);
                     oRS.MoveNext();
                 }
+
+                // Get the current logged-in user's code (ID)
+                string currentUserId = company.UserSignature.ToString();
+
+                // Select the current user in the ComboBox by USERID
+                this.cbxUser.Select(currentUserId, SAPbouiCOM.BoSearchKey.psk_ByValue);
             }
             catch (Exception ex)
             {
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error al cargar los usuarios: {ex.Message}");
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error loading users: {ex.Message}");
             }
         }
+
 
         // UI Event Handlers
         private void cbCopyTo_ComboSelectAfter(object sboObject, SAPbouiCOM.SBOItemEventArg pVal) // Event when an option is selected in the "Copy To" ComboBox
@@ -217,8 +225,9 @@ namespace SolicitudProduccion
             }
         }
 
+
         // Business Logic Methods
-        private void CreateProductionRequest()
+        private void CreateProductionRequest() // Method to create Production Request
         {
             try
             {
