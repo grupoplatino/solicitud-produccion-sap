@@ -98,7 +98,7 @@ namespace SolicitudProduccion
 
             InitializeGrid();
 
-            LoadUsersToComboBox(); // Fill user ComboBox
+            LoadUsersToComboBox();
         }
 
         private void InitializeGrid() // Method to configure the initial structure of the grid
@@ -227,62 +227,57 @@ namespace SolicitudProduccion
 
 
         // Business Logic Methods
-        private void CreateProductionRequest() // Method to create Production Request
+        private void CreateProductionRequest()
         {
             try
             {
-                // Get the SAP CompanyService object
-                SAPbobsCOM.CompanyService companyService = ((SAPbobsCOM.Company)SAPbouiCOM.Framework.Application.SBO_Application.Company.GetDICompany()).GetCompanyService();
+                SAPbobsCOM.Company company = (SAPbobsCOM.Company)SAPbouiCOM.Framework.Application.SBO_Application.Company.GetDICompany();
+                SAPbobsCOM.CompanyService companyService = company.GetCompanyService();
 
-                // Get the GeneralService for the header table (@SOLI_PROD_ENC)
-                SAPbobsCOM.GeneralService generalService = companyService.GetGeneralService("\"SOLI_PROD_ENC\"");
+                // Use the exact Object Name of your UDO
+                SAPbobsCOM.GeneralService generalService = companyService.GetGeneralService("SolicitudProduccion");
 
-                // Create a GeneralData object for the header
                 SAPbobsCOM.GeneralData headerData = (SAPbobsCOM.GeneralData)generalService.GetDataInterface(SAPbobsCOM.GeneralServiceDataInterfaces.gsGeneralData);
 
-                // Fill header fields
-                headerData.SetProperty("U_ItemCode", txtNoIte);
-                headerData.SetProperty("U_ProdName", txtDesc);
-                headerData.SetProperty("U_PlannedQty", txtQty);
-                headerData.SetProperty("U_Warehouse", txtWareH);
-                headerData.SetProperty("U_Priority", txtPrior);
+                // Set header fields (example)
+                headerData.SetProperty("U_ItemCode", txtNoIte.Value);
+                headerData.SetProperty("U_ProdName", txtDesc.Value);
+                headerData.SetProperty("U_PlannedQty", txtQty.Value);
+                headerData.SetProperty("U_Warehouse", txtWareH.Value);
+                headerData.SetProperty("U_Priority", txtPrior.Value);
                 headerData.SetProperty("U_PostDate", txtDate.Value);
                 headerData.SetProperty("U_LinkToObj", cbxLink.Value);
                 headerData.SetProperty("U_OriginNum", txtLinkOr.Value);
-                headerData.SetProperty("U_Client", txtClient.Value);
+                headerData.SetProperty("U_Cliente", txtClient.Value);
                 headerData.SetProperty("U_Comments", txtComm.Value);
 
-                // Get the child collection for the detail table (@SOLI_PROD_DET)
-                SAPbobsCOM.GeneralDataCollection detailsCollection = headerData.Child("\"@SOLI_PROD_DET\"");
-
-                // Loop through the grid rows and add them to the details collection
+                // Add details
+                SAPbobsCOM.GeneralDataCollection details = headerData.Child("SOLI_PROD_DET");
                 for (int i = 0; i < grdDet.Rows.Count; i++)
                 {
-                    // Create a new record in the details collection
-                    SAPbobsCOM.GeneralData detailData = detailsCollection.Add();
+                    SAPbobsCOM.GeneralData detail = details.Add();
 
                     // Fill detail fields
-                    detailData.SetProperty("U_ItemType", grdDet.DataTable.GetValue("U_ItemType", i).ToString());
-                    detailData.SetProperty("U_ItemCode", grdDet.DataTable.GetValue("U_ItemCode", i).ToString());
-                    detailData.SetProperty("U_ItemName", grdDet.DataTable.GetValue("U_ItemName", i).ToString());
-                    detailData.SetProperty("U_BaseQty", Convert.ToDouble(grdDet.DataTable.GetValue("U_BaseQty", i)));
-                    detailData.SetProperty("U_PlannedQty", Convert.ToDouble(grdDet.DataTable.GetValue("U_PlannedQty", i)));
-                    detailData.SetProperty("U_wareHouse", grdDet.DataTable.GetValue("U_wareHouse", i).ToString());
-                    detailData.SetProperty("U_IssueType", grdDet.DataTable.GetValue("U_IssueType", i).ToString());
-                    detailData.SetProperty("U_Costo_Inicial", Convert.ToDouble(grdDet.DataTable.GetValue("U_Costo_Inicial", i)));
-                    detailData.SetProperty("U_Costo_Inicial2", Convert.ToDouble(grdDet.DataTable.GetValue("U_Costo_Inicial2", i)));
+                    detail.SetProperty("U_ItemType", grdDet.DataTable.GetValue("U_ItemType", i).ToString());
+                    detail.SetProperty("U_ItemCode", grdDet.DataTable.GetValue("U_ItemCode", i).ToString());
+                    detail.SetProperty("U_ItemName", grdDet.DataTable.GetValue("U_ItemName", i).ToString());
+                    detail.SetProperty("U_BaseQty", Convert.ToDouble(grdDet.DataTable.GetValue("U_BaseQty", i)));
+                    detail.SetProperty("U_PlannedQty", Convert.ToDouble(grdDet.DataTable.GetValue("U_PlannedQty", i)));
+                    detail.SetProperty("U_wareHouse", grdDet.DataTable.GetValue("U_wareHouse", i).ToString());
+                    detail.SetProperty("U_IssueType", grdDet.DataTable.GetValue("U_IssueType", i).ToString());
+                    detail.SetProperty("U_Costo_Inicial", Convert.ToDouble(grdDet.DataTable.GetValue("U_Costo_Inicial", i)));
+                    detail.SetProperty("U_Costo_Inicial2", Convert.ToDouble(grdDet.DataTable.GetValue("U_Costo_Inicial2", i)));
                 }
 
-                // Add the header and details to the database
+                // Add the record
                 generalService.Add(headerData);
 
                 // Notify the user of success
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox("Solicitud de producción creada con éxito.");
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox("Solicitud de producción creada exitosamente.");
             }
             catch (Exception ex)
             {
-                // Notify the user of any error
-                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Ocurrió un error: {ex.Message}");
+                SAPbouiCOM.Framework.Application.SBO_Application.MessageBox($"Error: {ex.Message}");
             }
         }
 
